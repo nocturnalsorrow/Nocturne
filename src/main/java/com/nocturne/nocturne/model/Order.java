@@ -1,5 +1,6 @@
 package com.nocturne.nocturne.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class Order {
     private String order_date;
     private double total_amount;
     private String status;
+    @JsonIgnore
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;
 }

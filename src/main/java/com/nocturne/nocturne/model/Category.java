@@ -1,5 +1,6 @@
 package com.nocturne.nocturne.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
     private String name;
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<Instrument> instruments;
 }
