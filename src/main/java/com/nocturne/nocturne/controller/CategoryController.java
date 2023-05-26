@@ -1,6 +1,7 @@
 package com.nocturne.nocturne.controller;
 
 import com.nocturne.nocturne.model.Category;
+import com.nocturne.nocturne.model.Instrument;
 import com.nocturne.nocturne.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,11 @@ public class CategoryController {
     @GetMapping("/all")
     public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
+    }
+
+    @GetMapping("/getbyid/{id}")
+    public Category getCategoryById(@PathVariable("id") Long id){
+        return categoryService.getCategoryById(id);
     }
 
     @PostMapping("/add")

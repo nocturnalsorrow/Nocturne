@@ -24,6 +24,11 @@ public class ManufacturerController {
         return manufacturerService.getAllManufacturers();
     }
 
+    @GetMapping("/getbyid/{id}")
+    public Manufacturer getManufacturerById(@PathVariable("id") Long id){
+        return manufacturerService.getManufacturerById(id);
+    }
+
     @PostMapping("/add")
     public Manufacturer addManufacturer(@RequestBody Manufacturer manufacturer) {
         return manufacturerService.addManufacturer(manufacturer);

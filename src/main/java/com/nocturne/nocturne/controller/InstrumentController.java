@@ -2,6 +2,7 @@ package com.nocturne.nocturne.controller;
 
 import com.nocturne.nocturne.model.Instrument;
 import com.nocturne.nocturne.service.InstrumentService;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,11 @@ public class InstrumentController {
     @GetMapping("/all")
     public List<Instrument> getAllInstruments() {
         return instrumentService.getAllInstruments();
+    }
+
+    @GetMapping("/getbyid/{id}")
+    public Instrument getInstrumentById(@PathVariable("id") Long id){
+        return instrumentService.getInstrumentById(id);
     }
 
     @PostMapping("/add")
