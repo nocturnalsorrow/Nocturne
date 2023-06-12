@@ -3,15 +3,17 @@ package com.nocturne.nocturne.controller;
 import com.nocturne.nocturne.model.Manufacturer;
 import com.nocturne.nocturne.model.User;
 import com.nocturne.nocturne.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
     private final UserService userService;
 
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
